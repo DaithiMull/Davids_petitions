@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>petitions - All Petitions</title>
+    <link th:href="@{/style.css}" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a th:href="@{/petitions}">View All Petitions</a></li>
+            <li><a th:href="@{/create-petition}">Start a Petition</a></li>
+            <li><a th:href="@{/search}">Search Petitions</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+<h1>All Petitions</h1>
+<ul>
+    <li th:each="petition : ${petitions}">
+        <a th:href="@{/petitions/{id}(id=${petition.getId()})}">
+            {{petition.title}}
+        </a>
+    </li>
+</ul>
+</main>
+</body>
+</html>
